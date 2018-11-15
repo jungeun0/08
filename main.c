@@ -2,62 +2,48 @@
 #include <stdlib.h>
 
    /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+void print_image(int image[5][5]){
+	int * ptr = &image[0][0];
+	int i,j;
+	
+	for(i=0;i<5;i++){
+		for(j=0;j<5;j++){
+			printf("%d ",*ptr);
+			ptr++;
+		}
+	printf("\n");	
+	}
+}
 
-	int sum(int a, int b){
-				
-		return a + b;
+void brighten_image(int image[5][5]){
+	int * ptr = &image[0][0];
+	int i,j;
+	
+	for(i=0;i<5;i++){
+		for(j=0;j<5;j++){
+			*ptr = * ptr + 10;
+			ptr = ptr + 1;
+		}
+	printf("\n");	
 	}
-	int sub(int a, int b){
-		
-		return a = b;
-	}
-	int mul(int a, int b){
-		return a * b ;
-		
-	}
-	int nanugi(int a, int b){
-		
-		return a/b ;
-	}
+}
+
 int main(int argc, char *argv[]) {
 	
-	int i;
-	int j;
-	char k;
-	int (*function)(int,int);
+	int image[5][5] = {
+		{10,20,30,40,50},
+		{10,20,30,40,50},
+		{10,20,30,40,50},
+		{10,20,30,40,50},
+		{10,20,30,40,50}
+	};
 	
+	print_image(image);
+	
+	brighten_image(image);
+	
+	print_image(image);
 
-
-	printf("input calculation : ");
-	scanf("%d %s %d",&i, &k, &j);
-	
-	switch(k){
-		
-		case '+' :
-			function = sum;
-			break;
-		case  '-' :
-			function = sub;
-			break;
-		case '*' :
-			function = mul;
-			break;
-		case '/' :
-			function = nanugi;
-			break; 
-		
-		
-	}
-		
-		
-	
-	printf("result : %i\n",function(i,j));	
-	
-	
-	
-	
-	
-	
 	return 0;
 }
 
